@@ -20,15 +20,18 @@
     <div id="map"></div>
     <script>
 
+center_coords = {lat: 24.886, lng: -70.268}
+
 // This example creates a simple polygon representing the Bermuda Triangle. Note
 // that the code specifies only three LatLng coordinates for the polygon. The
 // API automatically draws a stroke connecting the last LatLng back to the first
 // LatLng.
 
 function initMap() {
+//    center: {lat: 24.886, lng: -70.268},
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 5,
-    center: {lat: 24.886, lng: -70.268},
+    center: center_coords,
     mapTypeId: google.maps.MapTypeId.TERRAIN
   });
 
@@ -41,12 +44,16 @@ function initMap() {
 //    {lat: 32.321, lng: -64.757}
 //  ];
   var triangleCoords = myCoords
+  for (i = 0; i < myCoords.length; i++) {
+    myCoords['lat'] -= center_coords['lat'];
+    myCoords['lng'] -= center_coords['lng'];
+  }
 
   var bermudaTriangle = new google.maps.Polygon({
     paths: triangleCoords,
     strokeColor: '#FF0000',
     strokeOpacity: 0.8,
-    strokeWeight: 3,
+    strokeWeight: 1,
     fillColor: '#FF0000',
     fillOpacity: 0.35
   });
