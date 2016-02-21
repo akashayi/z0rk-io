@@ -5,7 +5,7 @@ import sys
 if __name__ == '__main__':
     coords = []
     center=250
-    maxnum = 1000
+    maxnum = 5000
     count = 0
     scale = int(sys.argv[2])
     with open(sys.argv[1]) as inf:
@@ -20,4 +20,4 @@ if __name__ == '__main__':
                 lng = lng / scale
                 coords.append(dict(lat=lat, lng=lng))
             count += 1
-    print json.dumps(coords)
+    print "myCoords = " + json.dumps(coords)
