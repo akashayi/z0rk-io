@@ -5,7 +5,7 @@ import sys
 if __name__ == '__main__':
     coords = []
     center=250
-    maxnum = 5000
+    maxnum = 50
     count = 0
     scale = int(sys.argv[2])
     with open(sys.argv[1]) as inf:
